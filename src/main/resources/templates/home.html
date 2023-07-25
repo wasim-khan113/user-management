@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${title}">Document</title>
+</head>
+<body>
+
+	<section>
+		<h3 class="text-center">This is homepage</h3>
+		<table class="table table-info">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Gender</th>
+					<th scope="col">Email</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="users:${userList}">
+					<td th:text="${users.name}"></td>
+					<td th:text="${users.gender}"></td>
+					<td th:text="${users.email}"></td>
+					<td><a th:href="@{'/get_user/'+${users.id}}" href=""
+						class="btn btn-primary">Update</a><a th:href="@{'/delete_user/'+${users.id}}" href="" class="btn btn-danger">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

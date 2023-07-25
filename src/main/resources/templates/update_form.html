@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="my-card mt-1">
+
+						<h1 class="text-center">Update User Information</h1>
+						<form action="#" th:action="@{/add_user}" th:object="${user}" method="post">
+						<input type="hidden" name="id" th:value="${user.id}" />
+							<div class="mb-3">
+								<label for="name" class="form-label">Name of User </label> <input
+									type="text" th:value="${user.name}" name="name" class="form-control" id="name"
+									placeholder="Enter Name of User" required >
+							</div>
+							<div class="mb-3">
+								<label for="gender" class="form-label">Gender </label> <input
+									type="text" th:value="${user.gender}" name="gender" class="form-control" id="gender"
+									placeholder="Enter gender" required>
+							</div>
+							<div class="mb-3">
+								<label for="email" class="form-label">Your Email </label>
+								<input type="email" th:value="${user.email}" name="email" class="form-control"
+									id="email" placeholder="Enter Email id of User" required>
+							</div>
+						
+						
+
+							<div class="container text-center">
+								<button type="submit" class="btn btn-primary text-white">Update</button>
+							
+							</div>
+
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+
